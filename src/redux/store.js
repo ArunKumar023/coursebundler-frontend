@@ -1,25 +1,21 @@
 import { configureStore } from '@reduxjs/toolkit';
-import {
-    profileReducer,
-    subscriptionReducer,
-    userReducer,
-} from './reducers/userReducer';
-import { courseReducer } from './reducers/courseReducer';
 import { adminReducer } from './reducers/adminReducer';
+import { courseReducer } from './reducers/courseReducer';
 import { otherReducer } from './reducers/otherReducer';
+import { profileReducer, subscriptionReducer, userReducer } from './reducers/userReducer';
 
 const store = configureStore({
     reducer: {
-        user: userReducer,
+        user:userReducer,
         profile: profileReducer,
         course: courseReducer,
         subscription: subscriptionReducer,
         admin: adminReducer,
         other: otherReducer,
 
-    },
-});
+    }
+})
 
 export default store;
-export const server = 'https://coursebundler-eight.vercel.app/api/v1'
 
+export const server = 'https://coursebundler-ekd8.onrender.com/api/v1';

@@ -1,6 +1,7 @@
 import { Button, Container, Heading, Input, VStack } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
-import { toast } from 'react-hot-toast';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePassword } from '../../redux/actions/profile';
 
@@ -27,10 +28,9 @@ const ChangePassword = () => {
     }
   }, [dispatch, error, message]);
 
-
   return (
     <Container py="16" minH={'90vh'}>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} >
         <Heading
           textTransform={'uppercase'}
           children="Change Password"
@@ -71,4 +71,4 @@ const ChangePassword = () => {
   );
 };
 
-export default ChangePassword
+export default ChangePassword;

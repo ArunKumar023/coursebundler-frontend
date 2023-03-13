@@ -34,7 +34,6 @@ const Course = ({
       <Heading
         textAlign={['center', 'left']}
         maxW="200px"
-
         size={'sm'}
         fontFamily={'sans-serif'}
         noOfLines={3}
@@ -83,9 +82,8 @@ const Course = ({
         </Button>
       </Stack>
     </VStack>
-  )
-
-}
+  );
+};
 
 const Courses = () => {
   const [keyword, setKeyword] = useState('');
@@ -96,7 +94,7 @@ const Courses = () => {
     await dispatch(addToPlaylist(couseId));
     dispatch(loadUser());
   };
-  
+
   const categories = [
     'Web development',
     'Artificial Intellegence',
@@ -122,11 +120,12 @@ const Courses = () => {
       toast.success(message);
       dispatch({ type: 'clearMessage' });
     }
-  }, [category, keyword, dispatch,error, message]);
+  }, [category, keyword, dispatch, error, message]);
 
   return (
     <Container minH={'95vh'} maxW="container.lg" paddingY={'8'}>
       <Heading children="All Courses" m={'8'} />
+
       <Input
         value={keyword}
         onChange={e => setKeyword(e.target.value)}
@@ -150,13 +149,14 @@ const Courses = () => {
           </Button>
         ))}
       </HStack>
+
       <Stack
         direction={['column', 'row']}
         flexWrap="wrap"
         justifyContent={['flex-start', 'space-evenly']}
         alignItems={['center', 'flex-start']}
       >
-         {courses.length > 0 ? (
+        {courses.length > 0 ? (
           courses.map(item => (
             <Course
               key={item._id}
@@ -174,11 +174,9 @@ const Courses = () => {
         ) : (
           <Heading mt="4" children="Courses Not Found" />
         )}
-
-
       </Stack>
     </Container>
-  )
-}
+  );
+};
 
-export default Courses
+export default Courses;

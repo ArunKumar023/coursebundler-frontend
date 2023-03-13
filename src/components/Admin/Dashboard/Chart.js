@@ -20,7 +20,7 @@ ChartJS.register(
   Title,
   Tooltip,
   ArcElement,
-  Legend 
+  Legend
 );
 
 export const LineChart = ({ views = [] }) => {

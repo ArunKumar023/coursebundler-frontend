@@ -5,21 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import { updateProfile } from '../../redux/actions/profile';
 import { loadUser } from '../../redux/actions/user';
 
-const UpdateProfile = ({ user }) => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
+const UpdateProfile = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
   const submitHandler = async e => {
     e.preventDefault();
     await dispatch(updateProfile(name, email));
     dispatch(loadUser());
-    navigate('/profile');
+    // navigate('/profile');
   };
 
   const { loading } = useSelector(state => state.profile);
-
   return (
     <Container py="16" minH={'90vh'}>
       <form onSubmit={submitHandler} >
@@ -59,4 +58,4 @@ const UpdateProfile = ({ user }) => {
   );
 };
 
-export default UpdateProfile
+export default UpdateProfile;

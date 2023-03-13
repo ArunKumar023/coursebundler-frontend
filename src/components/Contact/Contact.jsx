@@ -8,13 +8,13 @@ import {
   Textarea,
   VStack,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { contactUs } from '../../redux/actions/other';
-import { useEffect } from 'react';
-import toast from 'react-hot-toast';
+
 
 const Contact = () => {
   const [name, setName] = useState('');

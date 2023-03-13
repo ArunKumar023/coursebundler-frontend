@@ -29,11 +29,11 @@ const ResetPassword = () => {
       dispatch({ type: 'clearMessage' });
       navigate('/login');
     }
-  }, [dispatch, error, message]);
+  }, [dispatch, error, message,navigate]);
 
   return (
     <Container py={'16'} h="90vh">
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} >
         <Heading
           children="Reset Password"
           my="16"

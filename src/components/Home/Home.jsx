@@ -3,7 +3,7 @@ import {
   Box,
   Button,
   Heading,
-  HStack, 
+  HStack,
   Image,
   Stack,
   Text,
@@ -79,7 +79,7 @@ const Home = () => {
       <div className="container2">
         <video
           controls
-          controlsList="nodownload noremoteplayback"
+          controlsList="nodownload nofullscreen noremoteplayback"
           disablePictureInPicture
           disableRemotePlayback
           src={introVideo}

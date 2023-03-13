@@ -17,6 +17,7 @@ export const userReducer = createReducer(
       state.isAuthenticated = false;
       state.error = action.payload;
     },
+
     registerRequest: state => {
       state.loading = true;
     },
@@ -31,6 +32,7 @@ export const userReducer = createReducer(
       state.isAuthenticated = false;
       state.error = action.payload;
     },
+
     logoutRequest: state => {
       state.loading = true;
     },
@@ -45,6 +47,7 @@ export const userReducer = createReducer(
       state.isAuthenticated = true;
       state.error = action.payload;
     },
+
     loadUserRequest: state => {
       state.loading = true;
     },
@@ -58,15 +61,15 @@ export const userReducer = createReducer(
       state.isAuthenticated = false;
       state.error = action.payload;
     },
+
     clearError: state => {
       state.error = null;
     },
     clearMessage: state => {
       state.message = null;
     },
-
   }
-)
+);
 
 export const profileReducer = createReducer(
   {},
@@ -186,5 +189,3 @@ export const subscriptionReducer = createReducer(
     },
   }
 );
-
-

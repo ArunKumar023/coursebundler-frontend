@@ -102,6 +102,7 @@ const AdminCourses = () => {
           my="16"
           textAlign={['center', 'left']}
         />
+
         <TableContainer w={['100vw', 'full']}>
           <Table variant={'simple'} size="lg">
             <TableCaption>All available courses in the database</TableCaption>
@@ -122,33 +123,33 @@ const AdminCourses = () => {
             <Tbody>
               {courses.map(item => (
                 <Row
-                  updateHandler={coureDetailsHandler}
-
                   coureDetailsHandler={coureDetailsHandler}
                   deleteButtonHandler={deleteButtonHandler}
                   key={item._id}
                   item={item}
-                loading={loading}
+                  loading={loading}
                 />
               ))}
             </Tbody>
           </Table>
         </TableContainer>
+
+        <CourseModal
+          isOpen={isOpen}
+          onClose={onClose}
+          id={courseId}
+          courseTitle={courseTitle}
+          deleteButtonHandler={deleteLectureButtonHandler}
+          addLectureHandler={addLectureHandler}
+          lectures={lectures}
+          loading={loading}
+        />
       </Box>
-      <CourseModal
-        isOpen={isOpen}
-        onClose={onClose}
-        id={courseId}
-        courseTitle={courseTitle}
-        deleteButtonHandler={deleteLectureButtonHandler}
-        addLectureHandler={addLectureHandler}
-        lectures={lectures}
-        loading={loading}
-      />
+
       <Sidebar />
     </Grid>
-  )
-}
+  );
+};
 
 function Row({ item, coureDetailsHandler, deleteButtonHandler, loading }) {
   return (
@@ -171,7 +172,7 @@ function Row({ item, coureDetailsHandler, deleteButtonHandler, loading }) {
             onClick={() => coureDetailsHandler(item._id, item.title)}
             variant={'outline'}
             color="purple.500"
-          isLoading={loading}
+            isLoading={loading}
           >
             View Lectures
           </Button>
@@ -179,7 +180,7 @@ function Row({ item, coureDetailsHandler, deleteButtonHandler, loading }) {
           <Button
             onClick={() => deleteButtonHandler(item._id)}
             color={'purple.600'}
-          isLoading={loading}
+            isLoading={loading}
           >
             <RiDeleteBin7Fill />
           </Button>

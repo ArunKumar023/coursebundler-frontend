@@ -109,8 +109,7 @@ export const forgetPassword = email => async dispatch => {
       payload: error.response.data.message,
     });
   }
-};
-
+}
 export const resetPassword = (token, password) => async dispatch => {
   try {
     dispatch({ type: 'resetPasswordRequest' });
@@ -138,6 +137,7 @@ export const resetPassword = (token, password) => async dispatch => {
     });
   }
 };
+
 
 export const addToPlaylist = id => async dispatch => {
   try {
