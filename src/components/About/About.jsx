@@ -76,6 +76,7 @@ const TandC = ({ termsAndCondition }) => (
     </Box>
   </Box>
 );
+
 const About = () => {
   return (
     <Container maxW={'container.lg'} padding="16" boxShadow={'lg'}>

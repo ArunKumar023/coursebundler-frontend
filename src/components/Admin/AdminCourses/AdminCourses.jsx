@@ -1,3 +1,4 @@
+
 import {
   Box,
   Button,
@@ -51,6 +52,7 @@ const AdminCourses = () => {
     setCourseId(courseId);
     setCourseTitle(title);
   };
+
   const deleteButtonHandler = courseId => {
     console.log(courseId);
     dispatch(deleteCourse(courseId));
@@ -189,4 +191,5 @@ function Row({ item, coureDetailsHandler, deleteButtonHandler, loading }) {
     </Tr>
   );
 }
+
 export default AdminCourses;

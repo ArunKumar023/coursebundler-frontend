@@ -1,12 +1,13 @@
 import {
-  Box,
   Button,
   Container,
-  FormLabel,
+  Grid,
   Heading,
   Input,
   Textarea,
   VStack,
+  Spinner,
+  Box,
 } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
@@ -15,23 +16,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { contactUs } from '../../redux/actions/other';
 
-
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
   const dispatch = useDispatch();
 
-  const {
-    loading,
-    error,
-    message: stateMessage,
-  } = useSelector(state => state.other);
+  const { error, message: stateMessage } = useSelector(state => state.other);
 
-  const submitHandler = e => {
+  const submitHandler = async e => {
     e.preventDefault();
-    dispatch(contactUs(name, email, message));
+    setSubmitting(true);
+    await dispatch(contactUs(name, email, message));
+    setSubmitting(false);
   };
 
   useEffect(() => {
@@ -48,68 +47,59 @@ const Contact = () => {
 
   return (
     <Container h="92vh">
-      <VStack h="full" justifyContent={'center'} spacing="16">
-        <Heading children="Contact Us" />
+      <Grid placeItems="center" h="full">
+        <VStack spacing="8" alignItems="flex-start">
+          <Heading children="Contact Us" />
 
-        <form onSubmit={submitHandler} style={{ width: '100%' }}>
-          <Box my={'4'}>
-            <FormLabel htmlFor="name" children="Name" />
-            <Input
-              required
-              id="name"
-              value={name}
-              onChange={e => setName(e.target.value)}
-              placeholder="Abc"
-              type={'text'}
-              focusBorderColor="yellow.500"
-            />
-          </Box>
+          <form onSubmit={submitHandler} style={{ width: '100%' }}>
+            <VStack spacing="4" alignItems="flex-start">
+              <Input
+                required
+                id="name"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                placeholder="Name"
+                type="text"
+                focusBorderColor="yellow.500"
+              />
+              <Input
+                required
+                id="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="Email Address"
+                type="email"
+                focusBorderColor="yellow.500"
+              />
+              <Textarea
+                required
+                id="message"
+                value={message}
+                onChange={e => setMessage(e.target.value)}
+                placeholder="Message"
+                focusBorderColor="yellow.500"
+              />
+              <Button
+                isLoading={submitting}
+                my="4"
+                colorScheme="yellow"
+                type="submit"
+              >
+                {submitting ? <Spinner size="sm" /> : 'Send Mail'}
+              </Button>
+            </VStack>
+          </form>
 
-          <Box my={'4'}>
-            <FormLabel htmlFor="email" children="Email Address" />
-            <Input
-              required
-              id="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              placeholder="abc@gmail.com"
-              type={'email'}
-              focusBorderColor="yellow.500"
-            />
-          </Box>
-
-          <Box my={'4'}>
-            <FormLabel htmlFor="message" children="Message" />
-            <Textarea
-              required
-              id="message"
-              value={message}
-              onChange={e => setMessage(e.target.value)}
-              placeholder="Your Message...."
-              focusBorderColor="yellow.500"
-            />
-          </Box>
-
-          <Button
-            isLoading={loading}
-            my="4"
-            colorScheme={'yellow'}
-            type="submit"
-          >
-            Send Mail
-          </Button>
-
-          <Box my="4">
+          <Box>
             Request for a course?{' '}
             <Link to="/request">
-              <Button colorScheme={'yellow'} variant="link">
-                Click
+              <Button colorScheme="yellow" variant="link">
+                Click here
               </Button>{' '}
-              here
             </Link>
           </Box>
-        </form>
-      </VStack>
+        </VStack>
+      </Grid>
     </Container>
   );
 };

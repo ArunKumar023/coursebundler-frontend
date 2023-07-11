@@ -25,7 +25,6 @@ const LinkButton = ({ url = '/', title = 'Home', onClose }) => (
 const Header = ({ isAuthenticated = false, user }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-   
   const dispatch = useDispatch();
 
   const logoutHandler = () => {

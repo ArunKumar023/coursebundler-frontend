@@ -54,6 +54,7 @@ const CourseModal = ({
     setVideoPrev('');
     onClose();
   };
+
   return (
     <Modal
       isOpen={isOpen}
