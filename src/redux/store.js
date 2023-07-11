@@ -18,4 +18,4 @@ const store = configureStore({
 
 export default store;
 
-export const server = 'https://coursebundler-ekd8.onrender.com/api/v1';
+export const server = 'https://coursebundler-1.vercel.app/api/v1';
