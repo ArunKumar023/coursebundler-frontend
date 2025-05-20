@@ -1,68 +1,111 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🎓 CourseBundler - MERN Stack Course Management App
 
-## Available Scripts
+CourseBundler is a full-featured **MERN stack** application for online course management. It includes both **User** and **Admin Dashboards**, **secure payment integration with Razorpay**, and **image hosting with Cloudinary**.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🔧 Tech Stack
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Frontend:** React, Redux Toolkit, Tailwind CSS
+- **Backend:** Node.js, Express.js, MongoDB (Mongoose)
+- **Payment Gateway:** Razorpay
+- **Image Uploads:** Cloudinary
+- **Authentication:** JWT (JSON Web Tokens)
+- **State Management:** Redux Toolkit
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## 🌐 Features
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 👨‍🎓 User Panel:
 
-### `npm run build`
+- Register and Login with JWT Authentication
+- Browse available courses
+- Enroll in courses via **Razorpay**
+- View enrolled courses
+- Secure dashboard with profile and settings
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🛠️ Admin Panel:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Create, update, and delete courses
+- Upload course thumbnails using **Cloudinary**
+- Manage all users (view, update role, delete)
+- View total revenue, payment stats, and analytics
+- Handle course enrollment requests
+- Dashboard analytics & performance
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🚀 Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 1. Clone the Repository
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+// Backend
+git clone https://github.com/ArunKumar023/Coursebundler
+cd coursebundler
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+// Fronted
+git clone https://github.com/ArunKumar023/coursebundler-frontend
+cd coursebundler-frontend
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Install Dependencies
 
-## Learn More
+# For Backend
+cd coursebundler
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# For Fronted
+cd coursebundler-frontend
+npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Configure Environment Variables
+Create a .env file inside the server/ directory with the following content:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+# Razorpay
+RAZORPAY_API_KEY=your_razorpay_api_key
+RAZORPAY_API_SECRET=your_razorpay_api_secret
 
-### Analyzing the Bundle Size
+# Cloudinary
+CLOUDINARY_CLIENT_NAME=your_cloud_name
+CLOUDINARY_CLIENT_API=your_cloudinary_api_key
+CLOUDINARY_CLIENT_SECRET=your_cloudinary_api_secret
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+# MongoDB
+MONGO_URI=mongodb://127.0.0.1:27017/your-db-name
 
-### Making a Progressive Web App
+# JWT
+JWT_SECRET=your_jwt_secret
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+# Frontend
+FRONTEND_URL=http://localhost:3000
 
-### Advanced Configuration
+# Port
+PORT=4000
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
+** Important: Never push .env files to GitHub. Always include .env in .gitignore. **
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+ ##Run the App Locally
 
-### `npm run build` fails to minify
+ # Start backend
+cd coursebundler
+npm run dev
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# For Fronted
+
+# Start frontend
+cd coursebundler-frontend
+npm start
+
+Frontend: http://localhost:3000
+
+Backend: http://localhost:4000
+
+
+Demo Credentials (Optional for Testing)
+
+Admin Email: admin@coursebundler.com
+Password: admin123
+```
